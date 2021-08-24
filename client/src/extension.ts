@@ -37,8 +37,11 @@ export function activate(context: ExtensionContext) {
 
   // Options to control the language client
   const clientOptions: LanguageClientOptions = {
-    // Register the server for plain text documents
-    documentSelector: [{ scheme: "file", language: "plaintext" }],
+    // Register the server for plain text documents and markdown
+    documentSelector: [
+      { scheme: "file", language: "plaintext" },
+      { scheme: "file", language: "markdown" },
+    ],
     synchronize: {
       // Notify the server about file changes to '.clientrc files contained in the workspace
       fileEvents: workspace.createFileSystemWatcher("**/.clientrc"),
